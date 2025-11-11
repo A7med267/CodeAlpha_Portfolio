@@ -808,10 +808,11 @@ footer {
     
     position: absolute;
     top: 50px;
-    left: 200px;
+    left: 210px;
     width: 200px;
     height: 4px;
     background: linear-gradient(90deg, var(--accent_color), transparent);
     border-radius: 2px;
   }
 }
+
