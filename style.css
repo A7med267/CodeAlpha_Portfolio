@@ -743,7 +743,7 @@ footer {
   }
     .div_text h1::after{
     position: absolute;
-    top: 170px;
+    top: 56px;
   }
 
 }
@@ -808,7 +808,7 @@ footer {
     
     position: absolute;
     top: 50px;
-    left: 120px;
+    left: 200px;
     width: 200px;
     height: 4px;
     background: linear-gradient(90deg, var(--accent_color), transparent);
