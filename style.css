@@ -63,8 +63,11 @@ nav.scrolled {
   font-family: "DM Sans", sans-serif;
   color: var(--accent_color);
   text-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+  z-index: 1001;
 }
-.close_menu ,.open_menu{
+
+.close_menu,
+.open_menu {
   display: none;
 }
 
@@ -105,6 +108,7 @@ nav.scrolled {
 .icons {
   display: flex;
   gap: 1rem;
+  align-items: center;
 }
 
 .icons a {
@@ -197,20 +201,19 @@ nav.scrolled {
   margin-bottom: 0.5rem;
   line-height: 1.2;
   text-shadow: 0 0 40px rgba(96, 165, 250, 0.3);
+  position: relative;
 }
 
 .div_text h1::after {
   content: '';
   position: absolute;
-  top:160px;
+  top: 160px;
   left: 0;
-  width: 100px;
-  height: 4px;
   width: 200px;
+  height: 4px;
   background: linear-gradient(90deg, var(--accent_color), transparent);
   border-radius: 2px;
 }
-
 
 .div_text h2 {
   font-size: 2rem;
@@ -246,6 +249,8 @@ nav.scrolled {
   font-size: 0.95rem;
   letter-spacing: 0.5px;
   box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  border: none;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -499,14 +504,6 @@ nav.scrolled {
 }
 
 /* Contact Section */
-
-
-/* Contact Section */
-.contact-section {
-  background: var(--bg_dark);
-
-}
-
 .contact-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -577,32 +574,18 @@ nav.scrolled {
   display: inline-block;
   text-decoration: none;
 }
+
 .social-links i {
   margin-right: 20px;
   padding-right: 10px;
 }
+
 .social-links a:hover {
   color: var(--accent_color);
   transform: translateX(40px) scale(1.1);
   filter: drop-shadow(0 5px 15px rgba(96, 165, 250, 0.5));
 }
 
-@media (max-width: 768px) {
-  .contact-content {
-    flex-direction: column;
-  }
-  
-  .contact-form {
-    flex: 0 0 100%;
-  }
-  
-  .social-links {
-    flex: 0 0 100%;
-    flex-direction: row;
-    justify-content: center;
-    gap: 2rem;
-  }
-}
 /* Footer */
 footer {
   text-align: center;
@@ -612,71 +595,72 @@ footer {
   border-top: 1px solid rgba(96, 165, 250, 0.1);
 }
 
-/* Responsive */
+/* Responsive Media Queries */
 @media (max-width: 850px) {
-  .nav-links{
+  .nav-links {
     position: fixed;
-    top: 0px;
-    left: -400px;
+    top: 0;
+    left: -100%;
     flex-direction: column;
     height: 100vh;
-    padding: 100px;
+    width: 300px;
+    padding: 100px 50px;
     background-color: #0a0e27;
-  }
-  .close_menu{
-    display: block;
-    font-size: 28px;
-    position: fixed;
-    top: 20px;
-    cursor: pointer;
-    z-index: 100;
-    padding-left: 120px;
-    transition: all 0.5s ease;
-
-    
-  }
-  .icons{
-    display: block;
-    font-size: 32px;
-    position: fixed;
-    top: 8px;
-    right: 70px;
-    cursor: pointer;
-    z-index: 100;
-    padding-left: 120px;
-    transition: all 0.3s ease;  }
-
-  .icons a:hover {
-    color: var(--accent_color);
-    transform: translateY(-3px);
-    scale: 1.1;
-    filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.5));
+    transition: left 0.5s ease;
+    z-index: 999;
   }
 
   .nav-links.active {
     left: 0;
-    transition: all 0.5s ease;
   }
 
-  .open_menu{
+  .close_menu {
     display: block;
-    position: fixed;
-    top: 15px;
-    left: 93%;
+    font-size: 28px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: var(--accent_color);
+    transition: all 0.3s ease;
+  }
+
+  .close_menu:hover {
+    color: var(--main_color_light);
+    transform: rotate(90deg);
+  }
+
+  .open_menu {
+    display: block;
     font-size: 28px;
     cursor: pointer;
-    padding-left: 5px;
+    color: var(--accent_color);
+    z-index: 1001;
   }
-  .logo{
-    position: fixed;
-    top: 0px;
-    left: 0;
-    z-index: 100;
-    padding: 20px;
+
+  .icons {
+    gap: 0.8rem;
   }
-  .nav-container{
-    height: 40px;
+
+  .icons .social-icon {
+    display: none;
   }
+
+  .logo {
+    z-index: 1001;
+  }
+
+  .nav-container {
+    position: relative;
+  }
+  
+  .div_text h1::after{
+    position: absolute;
+    top: 68px;
+    margin-left: -100px;
+  }
+
+  /* Hero Section Mobile */
   .hero .container {
     grid-template-columns: 1fr;
     text-align: center;
@@ -688,6 +672,11 @@ footer {
 
   .div_text h1 {
     font-size: 3rem;
+  }
+
+  .div_text h1::after {
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .div_text h2 {
@@ -704,8 +693,8 @@ footer {
   }
 
   .nav-links {
-    gap: 1.5rem;
-    font-size: 0.9rem;
+    gap: 2rem;
+    font-size: 1.2rem;
   }
 
   .person {
@@ -717,18 +706,17 @@ footer {
     width: 350px;
     height: 450px;
   }
-}
 
-@media (max-width: 1200px) {
+  /* Contact Section Mobile */
   .contact-content {
     flex-direction: column;
   }
-  
+
   .contact-form {
     flex: 0 0 100%;
     width: 100%;
   }
-  
+
   .social-links {
     flex: 0 0 100%;
     width: 100%;
@@ -737,34 +725,93 @@ footer {
   }
 }
 
+@media (max-width: 1200px) {
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .contact-form {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  .social-links {
+    flex: 0 0 100%;
+    width: 100%;
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+    .div_text h1::after{
+    position: absolute;
+    top: 170px;
+  }
+
+}
+
 @media (max-width: 768px) {
   .social-links {
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
   }
-  
+
   .social-links a {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }
 
+@media (max-width: 480px) {
+  .div_text h1 {
+    font-size: 2.5rem;
+  }
 
+  .div_text h2 {
+    font-size: 1.3rem;
+  }
 
+  .div_text h3 {
+    font-size: 1.2rem;
+  }
 
+  .btn,
+  .btn_d {
+    padding: 0.8rem 2rem;
+    font-size: 0.85rem;
+  }
 
+  .section-title {
+    font-size: 2rem;
+  }
 
+  .person {
+    max-width: 280px;
+    height: 350px;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+  .image-frame {
+    width: 280px;
+    height: 350px;
+  }
+  .div_text h1::after{
+    
+    position: absolute;
+    top: 50px;
+    left: 120px;
+    width: 200px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent_color), transparent);
+    border-radius: 2px;
+  }
+}
