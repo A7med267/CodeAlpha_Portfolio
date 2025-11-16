@@ -12,3 +12,21 @@ openMenu.onclick = () => {
 closeMenu.onclick = () => {
   navLinks.classList.remove("active");
 }
+
+
+        const scrollBtn = document.getElementById('up');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 500) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
