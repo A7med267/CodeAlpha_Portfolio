@@ -131,7 +131,7 @@ nav.scrolled {
   align-items: center;
   justify-content: center;
   padding: 6rem 5% 2rem;
-  background: linear-gradient(135deg, #000108 0%, #1e293b 50%, #040a19 100%);
+  /* background: linear-gradient(135deg, #000108 0%, #1e293b 50%, #040a19 100%); */
   position: relative;
   overflow: hidden;
 }
@@ -141,11 +141,11 @@ nav.scrolled {
   position: absolute;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(2, 11, 29, 0.15), transparent);
+  background: radial-gradient(circle, rgba(61, 114, 219, 0.3), transparent);
   border-radius: 50%;
   top: -300px;
   right: -200px;
-  animation: float 8s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
 
 .hero::after {
@@ -157,7 +157,7 @@ nav.scrolled {
   border-radius: 50%;
   bottom: -300px;
   left: -300px;
-  animation: float 6s ease-in-out infinite reverse;
+  animation: float 2s ease-in-out infinite reverse;
 }
 
 @keyframes float {
@@ -322,6 +322,31 @@ nav.scrolled {
   background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
   mix-blend-mode: normal;
 }
+
+
+.links {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  margin-top: 15px;
+
+}
+
+.links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--accent_color);
+  transform: translateY(-3px);
+  filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.5));
+}
+
+
+
 
 /* Services Section */
 .section {
@@ -595,6 +620,42 @@ footer {
   border-top: 1px solid rgba(96, 165, 250, 0.1);
 }
 
+
+#up {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #1e40af 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+#up.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#up:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+#up:active {
+    transform: translateY(-2px) scale(1.05);
+}
+
 /* Responsive Media Queries */
 @media (max-width: 850px) {
   .nav-links {
@@ -726,6 +787,29 @@ footer {
 }
 
 @media (max-width: 1200px) {
+.links {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  margin-top: 15px;
+  margin-left: 40%;
+
+}
+
+.links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 1.7rem;
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--accent_color);
+  transform: translateY(-3px);
+  filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.5));
+}
+
+
   .contact-content {
     flex-direction: column;
   }
@@ -745,10 +829,59 @@ footer {
     position: absolute;
     top: 56px;
   }
+  .links {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  margin-top: 15px;
+  margin-left: 0;
+
+}
+
+.links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--accent_color);
+  transform: translateY(-3px);
+  filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.5));
+}
+
+#contact{
+  padding: 1rem ,1rem;
+}
+
 
 }
 
 @media (max-width: 768px) {
+.links {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  margin-top: 15px;
+  margin-left: 38%;
+
+}
+
+.links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--accent_color);
+  transform: translateY(-3px);
+  filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.5));
+}
+
+
   .social-links {
     flex-direction: column;
     justify-content: center;
@@ -791,6 +924,29 @@ footer {
     font-size: 0.85rem;
   }
 
+  .links {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  margin-top: 15px;
+  margin-left: 35%;
+
+}
+
+.links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--accent_color);
+  transform: translateY(-3px);
+  filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.5));
+}
+
+
   .section-title {
     font-size: 2rem;
   }
@@ -808,11 +964,10 @@ footer {
     
     position: absolute;
     top: 50px;
-    left: 210px;
+    left: 200px;
     width: 200px;
     height: 4px;
     background: linear-gradient(90deg, var(--accent_color), transparent);
     border-radius: 2px;
   }
 }
-
