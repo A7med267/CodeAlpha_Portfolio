@@ -3,9 +3,6 @@ const openMenu = document.querySelector('.open_menu');
 const closeMenu = document.querySelector('.close_menu'); 
 
 openMenu.onclick = () => {
-  navLinks.classList.add("active");
-}
-openMenu.onclick = () => {
   navLinks.classList.toggle("active");
 }
 
@@ -13,20 +10,45 @@ closeMenu.onclick = () => {
   navLinks.classList.remove("active");
 }
 
+// ========== Scroll to Top Button ==========
+const scrollBtn = document.getElementById('up');
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 500) {
+        scrollBtn.classList.add('show');
+    } else {
+        scrollBtn.classList.remove('show');
+    }
+});
 
-        const scrollBtn = document.getElementById('up');
+scrollBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
 
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 500) {
-                scrollBtn.classList.add('show');
-            } else {
-                scrollBtn.classList.remove('show');
-            }
-        });
+// ========== Light/Dark Mode Toggle ==========
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+const themeIcon = themeToggle.querySelector('i');
 
-        scrollBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+//  localStorage
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+  body.classList.add('light-mode');
+  themeIcon.classList.replace('fa-sun', 'fa-moon');
+}
+
+// switch mode
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('light-mode');
+  
+//change icone
+  if (body.classList.contains('light-mode')) {
+    themeIcon.classList.replace('fa-sun', 'fa-moon');
+    localStorage.setItem('theme', 'light');
+  } else {
+    themeIcon.classList.replace('fa-moon', 'fa-sun');
+    localStorage.setItem('theme', 'dark');
+  }
+});
